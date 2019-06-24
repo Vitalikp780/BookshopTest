@@ -22,12 +22,16 @@
 	crossorigin="anonymous">
 </head>
 <body>
+
 	<div class="main-container">
 		<div class="main-form-container alert alert-primary">
+
 			<h3>Авторизоваться</h3>
-			<div class="alert alert-danger" th:if="${param.error}">Не правильно указан
-				username или password.</div>
-			<div class="alert alert-danger" th:if="${param.logout}">Вы вышли из системы.</div>
+
+			<div class="alert alert-danger" th:if="${param.error}">Не
+				правильно указан username или password.</div>
+			<div class="alert alert-danger" th:if="${param.logout}">Вы
+				вышли из системы.</div>
 			<form th:action="@{/login}" method="post">
 				<input type="hidden" name="${_csrf.parameterName}"
 					value="${_csrf.token}" /> <label for="email">Login</label>
@@ -36,19 +40,18 @@
 						aria-label="Username" name="username"
 						aria-describedby="basic-addon1">
 				</div>
-				
+
 				<div class="form-group">
 					<label for="exampleInputPassword1">Password</label> <input
 						type="password" class="form-control" name="password"
 						id="exampleInputPassword1" placeholder="Password">
 				</div>
-				
+
 				<div class="btn-group mb-3" role="group" aria-label="Basic example">
 					<button type="submit" class="btn btn-lg btn-primary mr-2">Подтвердить</button>
-					<br>
-					<a class="btn btn-secondary btn-lg mr-2" href="/" role="button">Войти как гость</a> 
-					<br>
-					<a class="btn btn-secondary btn-lg mr-2" href="/registration"
+					<br> <a class="btn btn-secondary btn-lg mr-2" href="/"
+						role="button">Войти как гость</a> <br> <a
+						class="btn btn-secondary btn-lg mr-2" href="/registration"
 						role="button">Зарегистрироваться</a>
 				</div>
 			</form>

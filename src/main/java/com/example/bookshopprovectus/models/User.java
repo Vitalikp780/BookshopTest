@@ -5,6 +5,12 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 
+ * @author Vitaly
+ *
+ */
+
 @Entity
 @Table(name = "Users")
 public class User {
@@ -24,11 +30,19 @@ public class User {
 
 	@ManyToMany
 	private List <Book> books = new ArrayList <Book>();
-
-	/*@ManyToMany(mappedBy = "users", cascade = CascadeType.ALL)
-	private List<Basket> basket;*/
+	
+	@OneToOne
+	private Order order;
 
 	public User() {
+	}
+
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
 	}
 
 	public Short getId() {
@@ -78,16 +92,4 @@ public class User {
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
 	}
-
-
-
-
-/*	public List<Basket> getBasket() {
-		return basket;
-	}
-
-	public void setBasket(List<Basket> basket) {
-		this.basket = basket;
-	}*/
-
 }

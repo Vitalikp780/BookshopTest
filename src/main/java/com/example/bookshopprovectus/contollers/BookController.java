@@ -48,7 +48,7 @@ public class BookController {
 		model.addAttribute("genres", genreRepository.findAll());
 		model.addAttribute("authors", authorRepository.findAll());
 		model.addAttribute("genreChecked", bookRepository.getOne(id).getGenres());
-		model.addAttribute("authorsChecked", bookRepository.getOne(id).getAuthors());	
+		model.addAttribute("authorsChecked", bookRepository.getOne(id).getAuthors());
 		model.addAttribute("contentPage", "editBook");
 		return "index";
 	}
@@ -58,7 +58,7 @@ public class BookController {
 		bookRepository.saveAndFlush(book);
 		return "redirect:/";
 	}
-	
+
 	@GetMapping("/books/addBook")
 	private String addBook(Model model) {
 		model.addAttribute("genres", genreRepository.findAll());

@@ -11,6 +11,12 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+/**
+ * 
+ * @author Vitaly
+ *
+ */
+
 @Entity
 @Table(name = "Roles")
 public class Role {

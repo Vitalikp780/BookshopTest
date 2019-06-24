@@ -7,6 +7,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.bookshopprovectus.models.Role;
 
+/**
+ * 
+ * @author Vitaly
+ *
+ */
 
 public interface RoleRepository extends JpaRepository<Role, Integer> {
 	List<Role> findAllById(Set<Long> singleton);

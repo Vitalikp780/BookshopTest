@@ -8,7 +8,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+/**
+ * 
+ * @author Vitaly
+ *
+ */
 
 @Entity
 @Table(name = "Orders")
@@ -25,16 +32,25 @@ public class Order {
 	private String city;
 	private String address;
 	private String fio;
-	private String email;
+	private String mail;
 	
 	@ManyToMany
 	private List<Book> books;
 	
-	
+	@OneToOne
+	private User user;
 	
 	public Order() {
 	}
 	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -107,12 +123,12 @@ public class Order {
 		this.fio = fio;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getMail() {
+		return mail;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setMail(String mail) {
+		this.mail = mail;
 	}
 
 	public List<Book> getBooks() {

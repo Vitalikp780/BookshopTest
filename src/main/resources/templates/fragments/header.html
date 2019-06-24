@@ -25,44 +25,46 @@
 </style>
 </head>
 <body>
-<nav class="navbar navbar-light" style="background-color: #f7da96;">
-	<nav class="navbar navbar-expand-sm rounded border shadow-sm"
-		style="background-color: #e3f2fd;" th:fragment="header(search)">
-		<a class="navbar-brand" href="/"><img
-			th:src="@{'/images/logo.png'}" width="50"> </a>
+	<nav class="navbar navbar-light" style="background-color: #f7da96;">
+		<nav class="navbar navbar-expand-sm rounded border shadow-sm"
+			style="background-color: #e3f2fd;" th:fragment="header(search)">
+			<a class="navbar-brand" href="/"><img
+				th:src="@{'/images/logo.png'}" width="50"> </a>
 
-		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-			<li class="nav-item"><a
-				class="nav-link btn btn-outline-secondary mr-2" href="/">Главная</a></li>
-			<li class="nav-item"><a
-				class="nav-link btn btn-outline-secondary mr-2" href="/authors">Авторы</a></li>
-			<li class="nav-item"><a
-				class="nav-link btn btn-outline-secondary mr-2" href="/genres">Жанры</a></li>
-			<!-- <li class="nav-item"><a
+			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+				<li class="nav-item"><a
+					class="nav-link btn btn-outline-secondary mr-2" href="/">Главная</a></li>
+				<li class="nav-item"><a
+					class="nav-link btn btn-outline-secondary mr-2" href="/authors">Авторы</a></li>
+				<li class="nav-item"><a
+					class="nav-link btn btn-outline-secondary mr-2" href="/genres">Жанры</a></li>
+				<!-- <li class="nav-item"><a
 				class="nav-link btn btn-outline-secondary mr-2" href="/inDeveloping">Корзина</a></li> -->
-			<li sec:authorize="hasRole('admin')" class="nav-item"><a
-					class="btn btn-primary mr-2" href="/order">Список заказов</a></li>
-			<li sec:authorize="hasRole('admin')" class="nav-item"><a
-					class="btn btn-primary mr-2" href="/books/addBook">Добавить книгу</a></li>
-			<li sec:authorize="hasRole('admin')" class="nav-item"><a
-					class="btn btn-primary mr-2" href="/authors/add">Добавить автора</a></li>
-			<li sec:authorize="hasRole('admin')" class="nav-item"><a
+				<li sec:authorize="hasRole('admin')" class="nav-item"><a
+					class="btn btn-primary mr-2" href="/orders">Список заказов</a></li>
+				<li sec:authorize="hasRole('admin')" class="nav-item"><a
+					class="btn btn-primary mr-2" href="/books/addBook">Добавить
+						книгу</a></li>
+				<li sec:authorize="hasRole('admin')" class="nav-item"><a
+					class="btn btn-primary mr-2" href="/authors/add">Добавить
+						автора</a></li>
+				<li sec:authorize="hasRole('admin')" class="nav-item"><a
 					class="btn btn-primary mr-2" href="/genres/add">Добавить жанр</a></li>
-		</ul>
+			</ul>
 
-		<th:block sec:authorize="isAuthenticated()">
-			<form th:action="@{/logout}" method="post">
-				<input class="btn btn-outline-secondary my-2 mr-sm-2 m-0"
-					type="submit" value="Выйти из акаута" />
-			</form>
-		</th:block>
+			<th:block sec:authorize="isAuthenticated()">
+				<form th:action="@{/logout}" method="post">
+					<input class="btn btn-outline-secondary my-2 mr-sm-2 m-0"
+						type="submit" value="Выйти из акаута" />
+				</form>
+			</th:block>
 
-		<th:block sec:authorize="isAnonymous()">
-			<form th:action="@{/logout}" method="post">
-				<input class="btn btn-outline-secondary my-2 mr-sm-2" 
-				type="submit" value="Войти в личный кабинет" />
-			</form>
-		</th:block>
-	</nav>
+			<th:block sec:authorize="isAnonymous()">
+				<form th:action="@{/logout}" method="post">
+					<input class="btn btn-outline-secondary my-2 mr-sm-2" type="submit"
+						value="Войти в личный кабинет" />
+				</form>
+			</th:block>
+		</nav>
 </body>
 </html>

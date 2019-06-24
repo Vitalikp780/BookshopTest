@@ -54,13 +54,13 @@ public class AuthorController {
 		model.addAttribute("contentPage", "books");
 		return "index";
 	}
-	
+
 	@GetMapping("/authors/add")
 	private String addAuthor(@ModelAttribute Author author, Model model) {
 		model.addAttribute("contentPage", "addAuthor");
 		return "index";
 	}
-	
+
 	@PostMapping("/authors/add")
 	private String addAuthor(@ModelAttribute Author author) {
 		authorRepository.saveAndFlush(author);

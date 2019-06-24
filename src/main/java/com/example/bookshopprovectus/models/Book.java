@@ -27,16 +27,16 @@ public class Book {
 	private Integer price;
 	private String name;
 	private String description;
-	
+
 	@ManyToMany
 	List<Author> authors;
-	
+
 	@ManyToMany
 	List<Genre> genres;
-	
+
 	@ManyToMany
 	List<User> users;
-	
+
 	public List<User> getUsers() {
 		return users;
 	}
@@ -63,29 +63,36 @@ public class Book {
 
 	public Book() {
 	}
-	
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public Integer getPrice() {
-		return price/100;
+		return price / 100;
 	}
+
 	public void setPrice(Integer price) {
 		this.price = price;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getDescription() {
 		return description;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
-	}	
+	}
 }

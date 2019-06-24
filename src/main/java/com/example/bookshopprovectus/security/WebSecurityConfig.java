@@ -13,6 +13,12 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 
+/**
+ * 
+ * @author Vitaly
+ *
+ */
+
 @SuppressWarnings("deprecation")
 @Configuration
 @EnableWebSecurity
@@ -30,8 +36,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 				.antMatchers("/**", "/bookInfo", "/authors", "/genres", "/books", "/contacts",
 						"/registration", "/css/main.css")
-				.permitAll().antMatchers("/authors/add", "/publishers/add").hasAuthority("ROLE_admin")
-				.antMatchers("/basket", "/order").hasAuthority("ROLE_user").anyRequest().fullyAuthenticated().and()
+				.permitAll().antMatchers("/authors/add", "/genress/add", "/orders").hasAuthority("ROLE_admin")
+				.antMatchers( ).hasAuthority("ROLE_user").anyRequest().fullyAuthenticated().and()
 				.exceptionHandling().accessDeniedPage("/login").and().formLogin().loginPage("/login")
 				.failureUrl("/login?error").permitAll().and().logout().logoutUrl("/logout").deleteCookies("remember-me")
 				.logoutSuccessUrl("/login").permitAll();

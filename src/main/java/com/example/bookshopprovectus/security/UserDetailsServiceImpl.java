@@ -14,6 +14,11 @@ import com.example.bookshopprovectus.models.Role;
 import com.example.bookshopprovectus.models.User;
 import com.example.bookshopprovectus.repositories.UserRepository;
 
+/**
+ * 
+ * @author Vitaly
+ *
+ */
 
 @Service
 @Transactional(readOnly = true)

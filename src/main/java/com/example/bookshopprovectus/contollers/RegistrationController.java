@@ -13,6 +13,11 @@ import com.example.bookshopprovectus.models.User;
 import com.example.bookshopprovectus.repositories.RoleRepository;
 import com.example.bookshopprovectus.repositories.UserRepository;
 
+/**
+ * 
+ * @author Vitaly
+ *
+ */
 
 @Controller
 public class RegistrationController {

@@ -15,6 +15,7 @@ import javax.persistence.Table;
  * @author Vitaly
  *
  */
+
 @Entity
 @Table(name = "Genres")
 public class Genre {
@@ -23,13 +24,13 @@ public class Genre {
 	@Column(name = "id", unique = true, nullable = false)
 	private Integer id;
 	private String name;
-	
+
 	@ManyToMany
 	List<Book> books;
 
 	public Genre() {
 	}
-	
+
 	public Integer getId() {
 		return id;
 	}

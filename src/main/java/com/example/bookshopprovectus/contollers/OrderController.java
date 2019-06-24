@@ -18,6 +18,11 @@ import com.example.bookshopprovectus.models.User;
 import com.example.bookshopprovectus.repositories.OrderRepository;
 import com.example.bookshopprovectus.repositories.UserRepository;
 
+/**
+ * 
+ * @author Vitaly
+ *
+ */
 
 @Controller
 public class OrderController extends SecurityContextHolder {
@@ -26,38 +31,24 @@ public class OrderController extends SecurityContextHolder {
 	@Autowired
 	private UserRepository userRepository;
 
-	@GetMapping("/order")
-	private String getIndex(Model model) {
+	@GetMapping("/orders")
+	private String getOrder(Model model) {
 		model.addAttribute("orders", orderRepository.findAll());
 		model.addAttribute("contentPage", "orders");
 		return "index";
 	}
 	
-	@PostMapping("/order")
-	private String addAuthor(@ModelAttribute Order order) {
+	@PostMapping("/bookInfo")
+	private String getOrder(@ModelAttribute("order") Order order, @ModelAttribute("book") Book book) {
+		order.setName(book.getName());
 		orderRepository.saveAndFlush(order);
-		return "redirect:/";
+		return "redirect:/orderForUser";
 	}
-/*	@GetMapping("/order")
-	private String getOrder(Model model) {
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		User user = userRepository.findByLogin(auth.getName()).orElse(new User());
-		List<Book> books = new ArrayList<Book>();
-		//List<Basket> userBaskets = user.getBasket();
-		for (int i = 0; i < userBaskets.size(); i++) {
-			for (int j = 0; j < userBaskets.get(i).getBooks().size(); j++) {
-				books.add(userBaskets.get(i).getBoo?ks().get(j));
-			}
-		}
-		int price = 0;
-		for (int i = 0; i < books.size(); i++) {
-			price += books.get(i).getPrice();
-		}
-
-		model.addAttribute("book", books);
-		model.addAttribute("price", price);
-		model.addAttribute("contentPage", "basket");
-		model.addAttribute("contentPage", "order");
+	
+	@GetMapping("/orderForUser")
+	private String getOrderForUser(Model model) {
+		model.addAttribute("orders", orderRepository.findAll());
+		model.addAttribute("contentPage", "orderForUser");
 		return "index";
-	}*/
+	}
 }

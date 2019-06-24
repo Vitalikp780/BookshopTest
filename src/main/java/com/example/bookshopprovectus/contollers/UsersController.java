@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.example.bookshopprovectus.models.User;
 import com.example.bookshopprovectus.repositories.UserRepository;
 
+/**
+ * 
+ * @author Vitaly
+ *
+ */
 
 @Controller
 public class UsersController {

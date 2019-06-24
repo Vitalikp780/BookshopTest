@@ -7,6 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.bookshopprovectus.repositories.BookRepository;
 
+/**
+ * 
+ * @author Vitaly
+ *
+ */
+
 @Controller
 public class MainController {
 
