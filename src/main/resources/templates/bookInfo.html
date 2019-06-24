@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<meta charset="UTF-8">
+
+<title>Информация о книге</title>
+</head>
+<body th:fragment="content">
+
+<div class="d-flex flex-wrap justify-content-around">
+		<div class="shadow card w-100 m-3 justify-content-between">
+	<div>
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text">Название</span>
+			</div>
+			<input type="text" class="form-control" th:field="*{bookShow.name}"
+				readonly>
+		</div>
+
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text">Цена</span>
+			</div>
+			<input type="text" class="form-control" th:field="*{bookShow.price}"
+				readonly>
+		</div>
+
+		<div class="input-group mb-3">
+			<!-- <input class="hide" id="hd-1" type="text"> <label for="hd-1"><b>Авторы</b></label> -->
+			<div class="input-group-prepend">
+				<span class="input-group-text">Автор</span>
+			</div>
+			<div>
+				<div th:each="author : ${bookShow.authors}">
+					<input type="text" class="form-control" th:value="${author.name}"
+						readonly>
+				</div>
+			</div>
+		</div>
+
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text">Жанр</span>
+			</div>
+			<div th:each="genre : ${bookShow.genres}">
+				<input type="text" class="form-control" th:value="${genre.name}"
+					readonly>
+			</div>
+
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text">Описание</span>
+				</div>
+				<br>
+				<textarea type="text" rows="3" class="form-control"
+					th:field="*{bookShow.description}" readonly>
+				</textarea>
+			</div>
+		</div>
+
+		<div>
+			<a sec:authorize="hasRole('admin')" class="btn btn-primary"
+				th:href="@{'/books/editBook/'+${bookShow.id}}" role="button">Редактирование
+				книги</a>
+		</div>
+	</div>
+	</div>
+	</div>
+	<br>
+
+<div class="d-flex flex-wrap justify-content-around">
+		<div class="shadow card w-100 m-3 justify-content-between">
+	<div>
+		<h5>Для заказа книги заполните онлайн форму!</h5>
+
+		<form action="http://formspree.io/vitalikp780@gmail.com" method="post">
+
+			<div class="email">
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label for="inputEmail4">E-mail</label> <input type="email"
+							class="form-control" id="inputEmail4" name="name"
+							value="input email@gmail.com">
+					</div>
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="inputEmail4">ФИО получателя</label> <input type="text"
+						class="form-control" id="inputEmail4" name="fio"
+						placeholder="Иванов Петр Васильевич">
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="inputAddress">Адрес получателя</label> <input
+						type="text" class="form-control" id="inputAddress" name="address"
+						placeholder="ул.Строителей, 1, кв. 103">
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="inputCity">Город</label> <input type="text"
+						class="form-control" id="inputCity" name="city"
+						placeholder="Одесса">
+				</div>
+				<div class="form-group col-md-4">
+					<label for="inputState">Страна</label> <select id="inputState"
+						class="form-control" name="country">
+						<option selected>Украина</option>
+						<option>Россия</option>
+						<option>Белорусь</option>
+						<option>Казахстан</option>
+						<option>Польша</option>
+						<option>Литва</option>
+						<option>Латвия</option>
+						<option>Эстония</option>
+						<option>Молдавия</option>
+						<option>Болгария</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="card">
+				<h5 class="card-title">Общее количество книг:</h5>
+				<h6 class="card-subtitle mb-2 text-muted" th:text="${price}">1</h6>
+				<input type="number" id="inputAddress" name="total-sum" value="1">
+			</div>
+			<!-- 					<div class="card">
+						<h4 class="card-title">Общая стоимость:</h4>
+						<h6 class="card-subtitle mb-2 text-muted" th:text="${price}">1</h6>
+						<input type="hidden" id="inputAddress" name="total-sum" value="1">
+					</div> -->
+					<br>
+			<div>
+				<button type="submit" class="btn btn-primary">Оформить
+					заказ</button>
+			</div>
+		</form>
+	</div>
+<br>
+	<div>
+		<a href="/"><input type="button" class="btn btn-success"
+			value="На главную" /></a>
+	</div>
+</body>
+</html>
