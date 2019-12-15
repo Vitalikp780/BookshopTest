@@ -33,16 +33,16 @@ public class Order {
 	private String address;
 	private String fio;
 	private String mail;
-	
+
 	@ManyToMany
 	private List<Book> books;
-	
+
 	@OneToOne
 	private User user;
-	
+
 	public Order() {
 	}
-	
+
 	public User getUser() {
 		return user;
 	}

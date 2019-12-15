@@ -29,8 +29,8 @@ public class User {
 	private List<Role> roles = new ArrayList<Role>();
 
 	@ManyToMany
-	private List <Book> books = new ArrayList <Book>();
-	
+	private List<Book> books = new ArrayList<Book>();
+
 	@OneToOne
 	private Order order;
 

@@ -37,14 +37,14 @@ public class OrderController extends SecurityContextHolder {
 		model.addAttribute("contentPage", "orders");
 		return "index";
 	}
-	
+
 	@PostMapping("/bookInfo")
 	private String getOrder(@ModelAttribute("order") Order order, @ModelAttribute("book") Book book) {
 		order.setName(book.getName());
 		orderRepository.saveAndFlush(order);
 		return "redirect:/orderForUser";
 	}
-	
+
 	@GetMapping("/orderForUser")
 	private String getOrderForUser(Model model) {
 		model.addAttribute("orders", orderRepository.findAll());

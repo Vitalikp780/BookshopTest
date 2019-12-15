@@ -10,7 +10,7 @@ public class ServletInitializer extends SpringBootServletInitializer {
 	 * @author Vitaly
 	 *
 	 */
-	
+
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(BookshopprovectusApplication.class);

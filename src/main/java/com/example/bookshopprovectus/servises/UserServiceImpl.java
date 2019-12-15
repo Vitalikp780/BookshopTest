@@ -12,7 +12,6 @@ import com.example.bookshopprovectus.models.User;
 import com.example.bookshopprovectus.repositories.RoleRepository;
 import com.example.bookshopprovectus.repositories.UserRepository;
 
-
 @Service
 public class UserServiceImpl implements UserService {
 

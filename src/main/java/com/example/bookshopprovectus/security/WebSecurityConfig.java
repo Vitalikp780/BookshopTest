@@ -34,13 +34,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-				.antMatchers("/**", "/bookInfo", "/authors", "/genres", "/books", "/contacts",
-						"/registration", "/css/main.css")
+				.antMatchers("/**", "/bookInfo", "/authors", "/genres", "/books", "/contacts", "/registration",
+						"/css/main.css")
 				.permitAll().antMatchers("/authors/add", "/genress/add", "/orders").hasAuthority("ROLE_admin")
-				.antMatchers( ).hasAuthority("ROLE_user").anyRequest().fullyAuthenticated().and()
-				.exceptionHandling().accessDeniedPage("/login").and().formLogin().loginPage("/login")
-				.failureUrl("/login?error").permitAll().and().logout().logoutUrl("/logout").deleteCookies("remember-me")
-				.logoutSuccessUrl("/login").permitAll();
+				.antMatchers().hasAuthority("ROLE_user").anyRequest().fullyAuthenticated().and().exceptionHandling()
+				.accessDeniedPage("/login").and().formLogin().loginPage("/login").failureUrl("/login?error").permitAll()
+				.and().logout().logoutUrl("/logout").deleteCookies("remember-me").logoutSuccessUrl("/login")
+				.permitAll();
 		http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/403");
 	}
 
